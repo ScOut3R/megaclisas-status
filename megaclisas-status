@@ -5,7 +5,7 @@ import re
 import sys
 from subprocess import Popen, PIPE
 
-binarypath = Popen(["whereis", "megacli"], stdout=PIPE).communicate()[0]
+binarypath_array = Popen(["whereis", "-b", "megacli"], stdout=PIPE).communicate()[0].split(': ')[1].split(' ')[0]
 
 # Adding a quick check to see if we're root, because on most cards I've tried this on
 # We need root access to query
